@@ -26,7 +26,7 @@ pipeline{
         // menjalakan unit test pada project karsajobs backend
         stage("test-app"){
             steps {
-                sh go test -v -short --count=1 $(go list ./...)
+                sh 'go test -v -short --count=1 $(go list ./...)'
             }
         }
 
