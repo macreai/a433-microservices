@@ -3,7 +3,7 @@ pipeline{
     
     // menggunakan go versi 1.15 sesuai karsajobs
     tools {
-        go 'go 1.15'
+        go '1.15'
     }
 
     stages{
