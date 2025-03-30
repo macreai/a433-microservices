@@ -37,6 +37,7 @@ pipeline{
                 withCredentials([string(credentialsId: 'GITHUB_PAT', variable: 'GITHUB_PAT')]) {
                   sh '''
                   export CR_PAT=$GITHUB_PAT
+                  chmod +x build_push_image_karsajobs.sh
                   ./build_push_image_karsajobs.sh
                   ''' 
                 }
