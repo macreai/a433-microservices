@@ -52,7 +52,12 @@ pipeline{
     post{
         always{
             // logout akun docker pada kondisi apapun agar akun yang digunakan aman
-            sh 'docker logout'
+            // menghapus semua credential dengan mengupdatenya menjadi null
+            sh '''
+            docker logout
+            export CR_PAT=null
+            export DOCKER_HUB_PW=null
+            '''
             echo "========docker logout success========"
         }
         success{
