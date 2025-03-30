@@ -14,7 +14,7 @@ docker tag karsajobs:latest ardaiyansyah/karsajobs:latest
  
 # login ke Docker Hub
 echo "Login ke Docker Hub..."
-docker login
+echo $DOCKER_HUB_PW | docker login -u ardaiyansyah --password-stdin
  
 # mengunggah image ke Docker Hub
 echo "Mengunggah image ke Docker Hub..."
