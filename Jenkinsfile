@@ -53,6 +53,7 @@ pipeline{
         always{
             // logout akun docker pada kondisi apapun agar akun yang digunakan aman
             sh 'docker logout'
+            echo "========docker logout success========"
         }
         success{
             echo "========pipeline executed successfully ========"
