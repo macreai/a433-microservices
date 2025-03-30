@@ -34,6 +34,7 @@ pipeline{
         stage("build-app-karsajobs"){
             steps {
                 // mengambil credential Personal Access Token Github dari Jenkins dan Set ke environment os
+                // mengambil password Docker Hub dari Jenkins dan Set ke environment os
                 withCredentials([
                     string(credentialsId: 'GITHUB_PAT', variable: 'GITHUB_PAT'),
                     string(credentialsId: 'DOCKER_HUB_PW', variable: 'DOCKER_HUB_PW')
@@ -49,6 +50,10 @@ pipeline{
         }
     }
     post{
+        always{
+            // logout akun docker pada kondisi apapun agar akun yang digunakan aman
+            sh 'docker logout'
+        }
         success{
             echo "========pipeline executed successfully ========"
         }
